@@ -1,0 +1,19 @@
+{% extends 'restaurant/base.html' %}
+
+{% block content %}
+
+  <p>Dishes</p>
+
+  <ul>
+    {% for dish in dishes %}
+        <li>
+            <a href="{% url 'restaurant:dish' dish.id %}">{{ dish.name }}</a>
+        </li>
+    {% empty %}
+      <li>No dish have been added yet.</li>
+    {% endfor %}
+  </ul>
+
+    <a href="{% url 'restaurant:bill' %}">Go to my bill</a>
+
+{% endblock content %}

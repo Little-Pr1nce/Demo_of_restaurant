@@ -1,0 +1,11 @@
+{% extends 'restaurant/base.html' %}
+
+{% block content %}
+
+<p>{{ name }}</p>
+<p>{{ price }}元</p>
+<p>{{ txt }}</p>
+
+<a href="{% url 'restaurant:menu' %}">Back to menu</a> -
+    <a href="{% url 'restaurant:dish_ordering' dish.id%}">Go to Order It</a>
+{% endblock content %}

@@ -1,0 +1,18 @@
+{% extends 'restaurant/base.html' %}
+
+{% block content %}
+    {{ name }}
+    <form action="" method="post" autocomplete="on">
+    {% csrf_token %}
+        number
+        <input type="number" step="1" min="0" max="100" name="number" />
+        <br/>
+        require
+        <input type="texy" name="require"/>
+        <br/>
+        <input type="submit" name="submit" value="confirm"/>
+    </form>
+
+    <a href="{% url 'restaurant:menu' %}">GO back to menu</a>
+
+{% endblock content %}

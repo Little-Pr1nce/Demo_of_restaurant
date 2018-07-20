@@ -1,0 +1,22 @@
+{% extends 'restaurant/base.html' %}
+
+{% block content %}
+
+  <p>This is your bill, please check it</p>
+
+  <ul>
+    {% for bill in bills %}
+        <li>
+            <p>{{ bill.dish_name }}-{{ bill.dish_number }}-{{ bill.dish_require }}</p>
+        </li>
+    {% empty %}
+      <li>No bill have been added yet.</li>
+    {% endfor %}
+  </ul>
+
+  <form action="{% url 'restaurant:bill' %}" method="post">
+    {% csrf_token %}
+    <button name="submit">Settle the bill</button>
+</form>
+    <a href="{% url 'restaurant:menu' %}">Go back to menu</a>
+{% endblock content %}
